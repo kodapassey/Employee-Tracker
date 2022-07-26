@@ -1,4 +1,6 @@
 const Role = require('./lib/roleRoutes');
+const Employee = require('./lib/employeeRoutes');
+const Department = require('./lib/departmentRoutes')
 const inquirer = require('inquirer');
 
 async function promptUser() {
@@ -18,10 +20,18 @@ async function promptUser() {
         .then((answers) => {
             const { choices } = answers;
 
-            if (choices === 'View all roles') {
+            if (choices === 'View all departments') {
+                Department.getAllDepartments();
+            } else if (choices === 'Add a department') {
+                Department.addDepartment();
+            } else if (choices === 'View all roles') {
                 Role.getAllRoles();
             } else if (choices === 'Add a role') {
                 Role.addRole();
+            } else if (choices === 'View all employees') {
+                Employee.getAllEmployees();
+            } else if (choices === 'Add an employee') {
+                Employee.addEmployee();
             }
         });
 }
