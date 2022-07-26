@@ -1,8 +1,3 @@
-const express = require('express');
-const router = express.Router();
-const db = require('../db/connection');
-
-
 // route to get all departments
 router.get('/department', (req, res) => {
     const sql = `SELECT * FROM department`;
@@ -53,5 +48,3 @@ router.post('/department', ({ body }, res) => {
         });
     });
 });
-
-module.exports = router;
