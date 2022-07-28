@@ -3,7 +3,7 @@ const Employee = require('./lib/employeeRoutes');
 const Department = require('./lib/departmentRoutes')
 const inquirer = require('inquirer');
 
-async function promptUser() {
+function promptUser() {
     console.log('Welcome To Employee Tracker!')
 
     inquirer.prompt([
@@ -17,8 +17,8 @@ async function promptUser() {
                     'View all employees', 'Add an employee', 'Update an employee']
         }
     ])
-        .then((answers) => {
-            const { choices } = answers;
+        .then((answer) => {
+            const { choices } = answer;
 
             if (choices === 'View all departments') {
                 Department.getAllDepartments();
@@ -32,9 +32,11 @@ async function promptUser() {
                 Employee.getAllEmployees();
             } else if (choices === 'Add an employee') {
                 Employee.addEmployee();
+            } else if (choices === 'Update an employee') {
+                Employee.updateEmployee();
             }
         });
-}
+};
 
 promptUser();
 
