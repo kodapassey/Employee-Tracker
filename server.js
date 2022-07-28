@@ -39,5 +39,3 @@ function promptUser() {
 };
 
 promptUser();
-
-// module.exports = { promptUser };
